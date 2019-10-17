@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+h1{
+  margin: 20px;
+}
+.slider {
+  width: 100%;
+  text-align: center;
+}
+  .slides > div {
+    margin: 17px;
+  }
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background: linear-gradient(162.83deg, #2561F4 6.03%, #48D3F2 97.94%, #628CF9 97.94%);
+  color: #ffffff;
+  padding: 15px;
+  border-style: none;
+}
+
+img {
+  border-radius: 10%;
+  width: 340px;
+  height: 225px;
+}
+
+.card{
+  /* Rectangle 2 */
+position: relative;
+width: 244px;
+height: 190px;
+margin-right: 40px;
+margin-bottom: 50px;
+/* Default Background */
+
+background: #FFFFFF;
+/* Cards Shadows */
+
+box-shadow: 0px 4px 8px rgba(38, 72, 116, 0.1);
+border-radius: 16px;
+
+}
+.moviepic{
+  /* image 5 */
+
+
+position: absolute;
+width: 40px;
+height: 40px;
+left: 26px;
+top: 403px;
+
+}
+
+
+/* For mobile phones://////////////////////////////////////////////////////////////////// */
+[class*="col-"] {
+  width: 100%;
+}
+@media only screen and (min-width: 600px) {
+  /* For tablets: //////////////////////////////////////////////////////////////////// */
+  .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+  .item1 {
+  grid-row: 1 / 2;
+}
+
+
+  .slider {
+  width: 100%;
+  text-align: center;
+
+}
+
+.slides {
+  display: flex;
+  
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  
+  
+  
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+}
+
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  margin-right: 27px;
+  border-radius: 10px;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+.slides > div:target {
+/*   transform: scale(0.8); */
+}
+
+}
+body{
+  margin: 0%;
+}
+
+@media only screen and (min-width: 1024px)  {
+  /* For desktop: //////////////////////////////////////////////////////////////////// */
+
+body{
+  margin: 0%;
+}
+
+
+  .slider {
+  width: 100%;
+  text-align: center;
+
+}
+
+.slides {
+  display: flex;
+  
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  
+  
+  
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+}
+
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  margin-right: 17px;
+  border-radius: 15px;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+.slides > div:target {
+/*   transform: scale(0.8); */
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 20px;
+  padding: 10px;
+}
+  .item1 {
+  grid-row: 1 / 2;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="banner-content">
+  <h1>Popular Solutions</h1>
+  <div class="slider">
+    <div class="slides">
+      <div id="slide-1">
+          <div class="card">
+              
+          </div>
+      </div>
+      <div id="slide-2">
+          <div class="card">
+              
+          </div>
+      </div>
+      <div id="slide-3">
+          <div class="card">
+              
+          </div>
+      </div>
+      <div id="slide-4">
+          <div class="card">
+              
+          </div>
+      </div>
+      <div id="slide-5">
+          <div class="card">
+              
+          </div>
+      </div>
+      <div id="slide-6">
+          <div class="card">
+              
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <br>
+</div>
+
+
+<div >
+    <h1>Discover New Solutions</h1>
+</div>
+    <div class="slider">
+           
+    <div class="slides">
+
+    <div class="grid-container">
+    <div id="slide-1">
+    <div class="item1">
+      <div class="card">
+            
+        </div>
+        </div>
+        <div class="item2">
+            <div class="card">
+            
+            </div>
+          </div>
+    </div>
+    <div id="slide-2">
+          <div class="item3">
+              <div class="card">
+                  <div id="moviepic"> </div>
+              </div>
+          </div>
+    
+          <div class="item4">
+              <div class="card">
+                  
+              </div>
+          </div>
+    </div>
+    <div id="slide-3">
+          <div class="item5">
+              <div class="card">
+                  
+              </div>
+          </div>
+          <div class="item6">
+              <div class="card">
+                  
+              </div>
+          </div>
+    </div>
+    <div id="slide-4">
+          <div class="item7">
+              <div class="card">
+                  
+                  </div>
+            </div>
+            <div class="item8">
+                <div class="card">
+                    
+                    </div>
+                </div>
+    </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>
