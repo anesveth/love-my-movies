@@ -9,6 +9,19 @@
 h1{
   margin: 20px;
 }
+h2{
+  font-family: Inter;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 140%;
+/* or 22px */
+
+
+/* Colors/Pill Text */
+
+background: #264874;
+}
 .slider {
   width: 100%;
   text-align: center;
@@ -22,11 +35,11 @@ h1{
   clear: both;
   display: table;
 }
-
-[class*="col-"] {
-  float: left;
-  padding: 15px;
+.logo{
+  position:absolute;
+  float:right;
 }
+
 
 html {
   font-family: "Lucida Sans", sans-serif;
@@ -35,21 +48,16 @@ html {
 .header {
   background: linear-gradient(162.83deg, #2561F4 6.03%, #48D3F2 97.94%, #628CF9 97.94%);
   color: #ffffff;
-  padding: 15px;
+  padding: 20px;
   border-style: none;
 }
 
-img {
-  border-radius: 10%;
-  width: 340px;
-  height: 225px;
-}
 
 .card{
   /* Rectangle 2 */
 position: relative;
-width: 244px;
-height: 190px;
+width: 284px;
+height: 210px;
 margin-right: 40px;
 margin-bottom: 50px;
 /* Default Background */
@@ -59,7 +67,7 @@ background: #FFFFFF;
 
 box-shadow: 0px 4px 8px rgba(38, 72, 116, 0.1);
 border-radius: 16px;
-
+text-align: center;
 }
 .moviepic{
   /* image 5 */
@@ -75,9 +83,8 @@ top: 403px;
 
 
 /* For mobile phones://////////////////////////////////////////////////////////////////// */
-[class*="col-"] {
-  width: 100%;
-}
+
+
 @media only screen and (min-width: 600px) {
   /* For tablets: //////////////////////////////////////////////////////////////////// */
   .grid-container {
@@ -220,7 +227,7 @@ body{
 
 <div class="header">
   <div class="banner-content">
-  <h1>Popular Solutions</h1>
+  <h1>Popular movies this week</h1>
   <div class="slider">
     <div class="slides">
       <div id="slide-1">
@@ -253,25 +260,33 @@ body{
               
           </div>
       </div>
+      <div class="logo">
+          <img src="https://www.themoviedb.org/assets/2/v4/logos/408x161-powered-by-rectangle-blue-10d3d41d2a0af9ebcb85f7fb62ffb6671c15ae8ea9bc82a2c6941f223143409e.png" width="260px" height="80px" >
+      </div>
     </div>
+  
   </div>
+  
 </div>
+
   <br>
+    
 </div>
 
 
 <div >
-    <h1>Discover New Solutions</h1>
+    <h1>Discover</h1>
 </div>
     <div class="slider">
            
     <div class="slides">
 
     <div class="grid-container">
+
     <div id="slide-1">
     <div class="item1">
       <div class="card">
-            
+
         </div>
         </div>
         <div class="item2">
@@ -280,7 +295,8 @@ body{
             </div>
           </div>
     </div>
-    <div id="slide-2">
+
+    <!-- <div id="slide-2">
           <div class="item3">
               <div class="card">
                   <div id="moviepic"> </div>
@@ -322,8 +338,7 @@ body{
     </div>
 
   </div>
-</div>
-
+</div> -->
 
 </body>
 </html>
