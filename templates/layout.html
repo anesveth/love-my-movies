@@ -2,7 +2,21 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Righteous|Rokkitt&display=swap" rel="stylesheet">
+<!-- /* SCRIPTS: //////////////////////////////////////////////////////////////////// */ -->
+<script>
+    function hidetext() {
+      var x = document.getElementById("description");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+
+</script>
 <style>
+  
 * {
   box-sizing: border-box;
 }
@@ -10,17 +24,78 @@ h1{
   margin: 20px;
 }
 h2{
-  font-family: Inter;
+font-family: 'Righteous', cursive;
 font-style: normal;
 font-weight: 600;
-font-size: 16px;
-line-height: 140%;
+font-size: 20px;
 /* or 22px */
-
 
 /* Colors/Pill Text */
 
-background: #264874;
+color: #264874;
+}
+
+.freefield{
+
+position: absolute;
+width: 77px;
+height: 17px;
+left: 101px;
+top: 30px;
+
+font-family: 'Rokkitt', serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 140%;
+/* identical to box height, or 17px */
+
+display: flex;
+align-items: center;
+
+/* Text/Grey */
+
+color: #8C91A1;
+}
+#description{
+
+position: absolute;
+width: 240px;
+height: 45px;
+left: 20px;
+top: 70px;
+
+font-family: 'Rokkitt', serif;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 140%;
+/* overflow:hidden;
+white-space: nowrap; Don't forget this one */
+text-overflow: ellipsis;
+display:block;
+
+/* or 15px */
+
+
+/* Text/Grey */
+
+color: #8C91A1;
+}
+.content {
+	padding: 0 0 0 15px; /* 75px being the width of the thumbnail + how much space you want to put between it and your text */
+	position: relative; /* So the thumbnail is relative to this */
+}
+#movieicon img{
+
+position: absolute;
+width: 70px;
+height: 75px;
+left: 20px;
+top: 20px;
+border-radius: 10px;
+float:left;
+
 }
 .slider {
   width: 100%;
@@ -35,18 +110,25 @@ background: #264874;
   clear: both;
   display: table;
 }
-.logo{
-  position:absolute;
-  float:right;
+#logo img{
+    position: absolute;
+  width: 70px;
+  height: 75px;
+  border-radius: 10px;
+  float:left;
+  top:120px;
+  left:390px;
+  position: absolute;
 }
 
 
-html {
-  font-family: "Lucida Sans", sans-serif;
+h1 {
+  font-family: 'Fascinate Inline', cursive;
 }
 
 .header {
-  background: linear-gradient(162.83deg, #2561F4 6.03%, #48D3F2 97.94%, #628CF9 97.94%);
+  /* background: linear-gradient(162.83deg, #2561F4 6.03%, #48D3F2 97.94%, #628CF9 97.94%); */
+  background-image: linear-gradient( 109.6deg,  rgba(6,2,2,1) 32.4%, rgba(137,30,47,1) 98.8% );
   color: #ffffff;
   padding: 20px;
   border-style: none;
@@ -57,7 +139,7 @@ html {
   /* Rectangle 2 */
 position: relative;
 width: 284px;
-height: 210px;
+height: 220px;
 margin-right: 40px;
 margin-bottom: 50px;
 /* Default Background */
@@ -68,19 +150,44 @@ background: #FFFFFF;
 box-shadow: 0px 4px 8px rgba(38, 72, 116, 0.1);
 border-radius: 16px;
 text-align: center;
+overflow:hidden;
 }
-.moviepic{
-  /* image 5 */
-
-
-position: absolute;
-width: 40px;
-height: 40px;
-left: 26px;
-top: 403px;
-
+button {
+        border-block-color: red;
+        color: rgb(0, 0, 0);
+        margin: 10px 10px 10px 10px;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+      }
+.glyphicon {
+opacity: 1;
+transition: opacity .25s ease-in-out;
+-moz-transition: opacity .25s ease-in-out;
+-webkit-transition: opacity .25s ease-in-out;
 }
 
+.glyphicon:hover {
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+
+
+body {
+        background-image: url("https://66.media.tumblr.com/ede2d137e59ffd404860a2316214bff4/tumblr_inline_n81vdztZns1s3zd2g.jpg");
+        background-repeat:  repeat;
+        /* no-repeat, */
+        background-color: #ffffff;
+        }
+        
+hr{
+  display: block;
+
+  border-style: inset;
+  border-width: 2px;
+  padding: 0px;
+  margin: 10px; 
+}
 
 /* For mobile phones://////////////////////////////////////////////////////////////////// */
 
@@ -93,6 +200,16 @@ top: 403px;
   grid-gap: 10px;
   padding: 10px;
 }
+#logo img{
+  position: absolute;
+  width: 70px;
+  height: 75px;
+  border-radius: 10px;
+  top:20px;
+  left:520px;
+  position: absolute;
+
+}
 
   .item1 {
   grid-row: 1 / 2;
@@ -102,6 +219,7 @@ top: 403px;
   .slider {
   width: 100%;
   text-align: center;
+  
 
 }
 
@@ -142,7 +260,7 @@ top: 403px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 100px;
+
 }
 .slides > div:target {
 /*   transform: scale(0.8); */
@@ -159,6 +277,16 @@ body{
 body{
   margin: 0%;
 }
+#logo img{
+    position: absolute;
+  width: 70px;
+  height: 75px;
+  border-radius: 10px;
+  float:left;
+  top:20px;
+  left:520px;
+  position: absolute;
+}
 
 
   .slider {
@@ -166,6 +294,7 @@ body{
   text-align: center;
 
 }
+
 
 .slides {
   display: flex;
@@ -224,20 +353,39 @@ body{
 </style>
 </head>
 <body>
-
+    <div id="logo">
+        <img src="https://www.themoviedb.org/assets/2/v4/logos/208x226-stacked-green-9484383bd9853615c113f020def5cbe27f6d08a84ff834f41371f223ebad4a3c.png" width="300px" height="100px" >
+    </div> 
 <div class="header">
+     
   <div class="banner-content">
   <h1>Popular movies this week</h1>
   <div class="slider">
     <div class="slides">
       <div id="slide-1">
           <div class="card">
-              
+            <div id="movieicon">
+              <img src="https://data.whicdn.com/images/322091643/superthumb.jpg?t=1541806755">
+            </div>
+            <div class="content">
+            <h2>Movie title</h2>
+            <div class="freefield">freefield</div>
+            <button onclick="hidetext()">show more details</button>
+            <div id="description">
+            <p>Peter Parker and his friends go on a summer trip to Europe. However, they will hardly be able to rest - Peter will have to agree to help</p>
+            <hr>
+            <!-- <button><img src="https://data.whicdn.com/images/336552994/original.jpg" width="50px" height="50px"></button>  -->
+            
+          </div> 
+            
+            </div>  
+            
           </div>
+          
       </div>
       <div id="slide-2">
           <div class="card">
-              
+
           </div>
       </div>
       <div id="slide-3">
@@ -260,9 +408,7 @@ body{
               
           </div>
       </div>
-      <div class="logo">
-          <img src="https://www.themoviedb.org/assets/2/v4/logos/408x161-powered-by-rectangle-blue-10d3d41d2a0af9ebcb85f7fb62ffb6671c15ae8ea9bc82a2c6941f223143409e.png" width="260px" height="80px" >
-      </div>
+      
     </div>
   
   </div>
@@ -270,12 +416,12 @@ body{
 </div>
 
   <br>
-    
+  
 </div>
 
 
 <div >
-    <h1>Discover</h1>
+    <h1>Discover</h1> 
 </div>
     <div class="slider">
            
