@@ -47,7 +47,7 @@ The app will look like this:
 
 # Usage
 
-> Fill this with your instructions on how to run your app.
+> docker run -p 5000:5000 lovemymovies
 
 ```bash
 # IT MUST RUN VIA DOCKER
@@ -103,7 +103,7 @@ Which gave me [trending_movies.json](trending_movies.json)
 
 # Not Extras, but required (MUST)
 
-- [ ] Use Flask as backend (for now)
+- [x] Use Flask as backend (for now)
 - [ ] Use Redis as the counter DB (incr/decr vote_count)
 - [ ] Use Redis to store any details or additional info for the movies (JSON respond)
 - [ ] Use Redis as a cache.
@@ -112,7 +112,7 @@ Which gave me [trending_movies.json](trending_movies.json)
 - [ ] A good html/css layout of your own.
 - [ ] Modularize everything with files and functions.
 - [ ] Use javascript to "Click and show more details of the movie"
-- [ ] IT WILL NOT RUN under python, but Docker, you must provide under the [README's Usage](#usage) how to run it using Docker commands
+- [x] IT WILL NOT RUN under python, but Docker, you must provide under the [README's Usage](#usage) how to run it using Docker commands
 
 
 
