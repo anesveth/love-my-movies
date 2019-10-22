@@ -8,7 +8,8 @@ RUN pip install certifi
 RUN pip install --upgrade certifi
 
 COPY . ./
-CMD start.sh
+CMD ["sudo apt-get install redis-server"]
+CMD ["sudo service redis-server start"]
 CMD [ "python", "lmm.py" ]
 
 EXPOSE 5000
