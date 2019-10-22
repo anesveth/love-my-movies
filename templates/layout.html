@@ -4,7 +4,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Righteous|Rokkitt&display=swap" rel="stylesheet">
 <!-- /* SCRIPTS: //////////////////////////////////////////////////////////////////// */ -->
-
+<script>
+    function hidetext(clas,i,discover) {
+      if (discover=='yes'){
+        i+=7;
+      }
+      var x = document.getElementsByClassName(clas)[i];
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }  
+</script>
 <style>
   
 * {
@@ -385,21 +397,12 @@ button {
             <h2>{{movie['original_title']}}</h2>
             {%endif%}
             <div class="freefield">release date: {{movie['release_date']}}</div>
-            <script>
-                function hidetext(clas,i) {
-                  var x = document.getElementsByClassName(clas)[i];
-                  if (x.style.display === "block") {
-                    x.style.display = "none";
-                  } else {
-                    x.style.display = "block";
-                  }
-                }  
-            </script>
+
             <div id="description" >
             <p>{{movie['overview']}}</p>
-            <button onclick="hidetext('extras',{{loop.index0}})">show more details</button>
+            <button onclick="hidetext('extras',{{loop.index0}},'no')">show more details</button>
             <div class="extras">
-              <p>vote average: {{movie['vote_average']}}</p>
+              <p>average rating: {{movie['vote_average']}}</p>
               <p>vote count: {{movie['vote_count']}}</p>
               <p>language: {{movie['original_language']}}</p>
             </div>
@@ -446,21 +449,11 @@ button {
               <h2>{{movie['original_title']}}</h2>
               {%endif%}
               <div class="freefield">release date: {{movie['release_date']}}</div>
-              <script>
-                  function hidetext(clas,i) {
-                    var x = document.getElementsByClassName(clas)[i];
-                    if (x.style.display === "block") {
-                      x.style.display = "none";
-                    } else {
-                      x.style.display = "block";
-                    }
-                  }  
-              </script>
               <div id="description" >
               <p>{{movie['overview']}}</p>
-              <button onclick="hidetext('extras',{{loop.index0}})">show more details</button>
+              <button onclick="hidetext('extras',{{loop.index0}},'yes')">show more details</button>
               <div class="extras">
-                <p>vote average: {{movie['vote_average']}}</p>
+                <p>average rating: {{movie['vote_average']}}</p>
                 <p>vote count: {{movie['vote_count']}}</p>
                 <p>language: {{movie['original_language']}}</p>
               </div>

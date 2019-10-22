@@ -46,9 +46,10 @@ The app will look like this:
 > here only one box is shown, obviously you will work with a variable list of movies.
 
 # Usage
-
+> docker pull anesveth/lovemymovies:lovemymovies0.2
 > docker run --name my-redis -p 6379:6379 --restart always --detach redis 
-> docker run -p 5000:5000 anesveth/love-my-movies:lovemymovies0.1
+> docker run -p 5000:5000 anesveth/lovemymovies:lovemymovies0.2
+
 
 ```bash
 # IT MUST RUN VIA DOCKER
