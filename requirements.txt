@@ -2,3 +2,4 @@ redis==3.3.11
 flask
 bs4 
 requests
+certifi

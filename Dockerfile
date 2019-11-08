@@ -1,15 +1,12 @@
 FROM python:3-alpine
 
-WORKDIR /lovemymovies
-COPY requirements.txt .
+WORKDIR /app
+COPY ./requirements.txt /app/requirements.txt
 
 RUN pip install -r requirements.txt
-RUN pip install certifi
-RUN pip install --upgrade certifi
 
-COPY . ./
-CMD ["sudo apt-get install redis-server"]
-CMD ["sudo service redis-server start"]
-CMD [ "python", "lmm.py" ]
+COPY . /app
+ENTRYPOINT ["python"]
+CMD ["lmm.py"]
 
 EXPOSE 5000

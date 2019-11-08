@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 import requests,sys,csv,json
 import redis
 
@@ -13,7 +13,7 @@ except:
     print("Unnable to access api")
     sys.exit(1)
 
-r = redis.StrictRedis(host='docker.for.mac.localhost', port=6379)
+r = redis.StrictRedis(host='docker.for.mac.localhost', port=6379,db=0, decode_responses=True)
 # def jsonify(html_stuff):
 #     with open(html_stuff) as json_file:
 #         data = json.load(json_file)
@@ -26,10 +26,11 @@ movies=api.json()['results']
 # data = response.read().decode("utf-8")
 # dictdata= json.loads(data)
 
+
+
 @app.route("/")
-def home():
+def home():  
     maxmovies=0;
-    counter4hiding=0
     popular=[]
     discover=[]
     overfloww=[]
@@ -37,15 +38,18 @@ def home():
     longtitle=[]
     for movie in movies:
         for item,value in movie.items():
-                if item=='overview':
-                    if len(value)>200:
-                        overfloww.append(movie)
-                if item=='original_title':
-                    if len(value)>33:
-                        longtitle.append(movie)
-                        
-                if item!='video' or item!='adult' or item!='genre_ids':
-                    rdictionary[item]=str(value)
+            votecount=movie["vote_count"]
+            # SAASKDAS AQUI ES DONDE GUARDO LOS VOTECOUNTS
+            r.set(movie["id"], votecount) 
+            if item=='overview':
+                if len(value)>200:
+                    overfloww.append(movie)
+            if item=='original_title':
+                if len(value)>30:
+                    longtitle.append(movie)
+            
+            if item!='video' or item!='adult' or item!='genre_ids':
+                rdictionary[item]=str(value)
         if maxmovies<=6:
             popular.append(movie)
             maxmovies+=1;
@@ -53,7 +57,22 @@ def home():
             discover.append(movie)
         title=str(movie['original_title'])
         r.hmset(title,rdictionary)
-    return render_template('layout.html',popular=popular,overfloww=overfloww,discover=discover,longtitle=longtitle,moviecounter=counter4hiding)
+    return render_template('layout.html',popular=popular,overfloww=overfloww,discover=discover,longtitle=longtitle, r=r)
+# sdsdasdasdas AQUI EMPIEZA EL PROBLEMA
+@app.route("/upvote", methods = ['GET', 'POST'])
+def increase():
+    if request.form.get('subir') is not None:
+        if request.method == 'POST':
+            r.incr(int(request.values.get('subir')))
+        return redirect("/")
+    else:
+        return redirect("/")
+
+# @app.route("/downvote", methods = ['GET', 'POST'])
+# def decrease():
+#     if request.method == 'POST':
+#         r.decr(movie['id'])
+#     return redirect("/")
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",debug=True)
