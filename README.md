@@ -47,8 +47,7 @@ The app will look like this:
 
 # Usage
 > docker pull anesveth/lovemymovies:lovemymovies0.2
-> docker run --name my-redis -p 6379:6379 --restart always --detach redis 
-> docker run -p 5000:5000 anesveth/lovemymovies:lovemymovies0.2
+> docker-compose up
 
 
 ```bash

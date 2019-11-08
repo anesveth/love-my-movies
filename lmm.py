@@ -28,35 +28,36 @@ movies=api.json()['results']
 
 
 
+
+maxmovies=0;
+popular=[]
+discover=[]
+overfloww=[]
+rdictionary={}
+longtitle=[]
+for movie in movies:
+    votecount=movie["vote_count"]
+    # SAASKDAS AQUI ES DONDE GUARDO LOS VOTECOUNTS
+    r.set(movie["id"], votecount) 
+    for item,value in movie.items():  
+        if item=='overview':
+            if len(value)>200:
+                overfloww.append(movie)
+        if item=='original_title':
+            if len(value)>30:
+                longtitle.append(movie)
+        
+        if item!='video' or item!='adult' or item!='genre_ids':
+            rdictionary[item]=str(value)
+    if maxmovies<=6:
+        popular.append(movie)
+        maxmovies+=1;
+    else:
+        discover.append(movie)
+    title=str(movie['original_title'])
+    r.hmset(title,rdictionary)
 @app.route("/")
 def home():  
-    maxmovies=0;
-    popular=[]
-    discover=[]
-    overfloww=[]
-    rdictionary={}
-    longtitle=[]
-    for movie in movies:
-        for item,value in movie.items():
-            votecount=movie["vote_count"]
-            # SAASKDAS AQUI ES DONDE GUARDO LOS VOTECOUNTS
-            r.set(movie["id"], votecount) 
-            if item=='overview':
-                if len(value)>200:
-                    overfloww.append(movie)
-            if item=='original_title':
-                if len(value)>30:
-                    longtitle.append(movie)
-            
-            if item!='video' or item!='adult' or item!='genre_ids':
-                rdictionary[item]=str(value)
-        if maxmovies<=6:
-            popular.append(movie)
-            maxmovies+=1;
-        else:
-            discover.append(movie)
-        title=str(movie['original_title'])
-        r.hmset(title,rdictionary)
     return render_template('layout.html',popular=popular,overfloww=overfloww,discover=discover,longtitle=longtitle, r=r)
 # sdsdasdasdas AQUI EMPIEZA EL PROBLEMA
 @app.route("/upvote", methods = ['GET', 'POST'])
@@ -68,11 +69,15 @@ def increase():
     else:
         return redirect("/")
 
-# @app.route("/downvote", methods = ['GET', 'POST'])
-# def decrease():
-#     if request.method == 'POST':
-#         r.decr(movie['id'])
-#     return redirect("/")
+
+@app.route("/downvote", methods = ['GET', 'POST'])
+def decrease():
+    if request.form.get('bajar') is not None:
+        if request.method == 'POST':
+            r.decr(int(request.values.get('bajar')))
+        return redirect("/")
+    else:
+        return redirect("/")
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",debug=True)
