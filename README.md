@@ -46,7 +46,7 @@ The app will look like this:
 > here only one box is shown, obviously you will work with a variable list of movies.
 
 # Usage
-> docker pull anesveth/lovemymovies:lovemymovies0.2
+> docker pull anesveth/lovemymovies:lovemymovies3.0
 > docker-compose up
 
 

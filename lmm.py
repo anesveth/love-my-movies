@@ -56,6 +56,8 @@ for movie in movies:
         discover.append(movie)
     title=str(movie['original_title'])
     r.hmset(title,rdictionary)
+r.set('uparrow',"static/up.png")
+r.set('downarrow',"static/down.png")
 @app.route("/")
 def home():  
     return render_template('layout.html',popular=popular,overfloww=overfloww,discover=discover,longtitle=longtitle, r=r)

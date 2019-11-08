@@ -57,33 +57,23 @@ line-height: 130%;
 
 /* display: flex; */
 align-items: center;
+display:inline-block;
 
 /* Text/Grey */
 
 color: #002e66;
 }
-.freefield_bottom{
-
-position: absolute;
-width: 190px;
-height: 95px;
-left: 80px;
-top: 30px;
-
-font-family: 'Rokkitt', serif;
-font-style: normal;
-font-weight: 100;
-font-size: 15px;
-line-height: 130%;
-/* identical to box height, or 17px */
-
-/* display: flex; */
-align-items: center;
-
-/* Text/Grey */
-
-color: #002e66;
+.freefield form,
+.freefield form div {
+    display: inline;
 }
+
+.freefield button {
+    display: inline;
+    vertical-align: middle;
+}
+
+
 
 #description{
 
@@ -220,6 +210,7 @@ button {
         display:inline-block;
 
       }
+
 /* For mobile phones://////////////////////////////////////////////////////////////////// */
 
 
@@ -425,11 +416,11 @@ button {
             <div class="freefield">
               <p>release date: {{movie['release_date']}}</p>
               <!-- AQUI ESTA EL BOTNO PARA SUBIR, EL VALUE Q LE MANDO ES EL VOTECOCUNT -->
-              <form action="/upvote" method="POST" align="left">
-                <button type='subir' name='subir' value={{movie['id']}}>upvote</button>
+              <form action="/upvote" method="POST" >
+                <button type='subir' name='subir' value={{movie['id']}}><img src={{r.get('uparrow')}} width="25px" height="25px"></button>
               </form>
               {{r.get(movie['id'])}} 
-              <form action="/downvote" method="POST"> <button type='bajar' name='bajar' value={{movie['id']}}>downvote</button> </form>
+              <form action="/downvote" method="POST"> <button type='bajar' name='bajar' value={{movie['id']}}><img src={{r.get('downarrow')}} width="25px" height="25px"></button> </form>
             </div>
             <div id="description" >
             <p>{{movie['overview']}}</p>
@@ -481,11 +472,14 @@ button {
               {%if movie not in longtitle%}
               <h2>{{movie['original_title']}}</h2>
               {%endif%}
-              <div class="freefield_bottom">release date: {{movie['release_date']}}
-                <form action="/upvote" method="POST" align="left">
-                  <button type='subir' name='subir' value={{movie['id']}}>upvote</button>
+              <div class="freefield">
+                <p>release date: {{movie['release_date']}}</p>
+                <!-- AQUI ESTA EL BOTNO PARA SUBIR, EL VALUE Q LE MANDO ES EL VOTECOCUNT -->
+                <form action="/upvote" method="POST" >
+                  <button type='subir' name='subir' value={{movie['id']}}><img src={{r.get('uparrow')}} width="25px" height="25px"></button>
                 </form>
                 {{r.get(movie['id'])}} 
+                <form action="/downvote" method="POST"> <button type='bajar' name='bajar' value={{movie['id']}}><img src={{r.get('downarrow')}} width="25px" height="25px"></button> </form>
               </div>
               <div id="description">
               <p>{{movie['overview']}}</p>
@@ -504,7 +498,7 @@ button {
         </div>
         {%endfor%}
 
-</div> -->
+</div> 
 
 </body>
 </html>
